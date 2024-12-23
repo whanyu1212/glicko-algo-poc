@@ -3,6 +3,7 @@ A basic implementation of the Glicko rating system for understanding its calcula
 
 
 ### Folder Structure
+```
 src/
 ├── glicko/
 │   ├── __init__.py
@@ -18,3 +19,4 @@ src/
 ├── pyproject.toml
 └── README.md
 └── uv.lock
+```
