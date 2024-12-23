@@ -1,17 +1,10 @@
-[tool.poetry]
+[project]
 name = "glicko"
 version = "0.1.0"
-description = ""
-authors = ["hy"]
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.10"
-ipykernel = "^6.25.2"
-pandas = "^2.1.0"
-numpy = "^1.25.2"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.1",
+    "pandas>=2.2.3",
+]
