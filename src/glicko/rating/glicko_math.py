@@ -150,15 +150,50 @@ class GlickoMath:
 
     @staticmethod
     def calculate_phi_star(phi: float, sigma: float) -> float:
-        """Calculate phi* function."""
+        """Calculate the value phi star, which is an intermediate
+        value used in the calculation of the new rating deviation.
+
+        Args:
+            phi (float): average rating deviation of the team
+            sigma (float): volatility of the team
+
+        Returns:
+            float: phi star value
+        """
         return math.sqrt(phi**2 + sigma**2)
 
     @staticmethod
-    def calculate_new_phi(phi_star, v):
+    def calculate_new_phi(phi_star: float, v: float) -> float:
+        """Calculate the new rating deviation based on the
+        intermediate value phi star and the ancillary variance v
+
+        Args:
+            phi_star (float): intermediate value
+            v (float): ancillary variance
+
+        Returns:
+            float: new rating deviation
+        """
         new_phi = 1 / math.sqrt(1 / phi_star**2 + 1 / v)
         return new_phi
 
     @staticmethod
-    def calculate_new_mu(mu, new_sigma, g_phi, outcome, expected_outcome):
+    def calculate_new_mu(
+        mu: float, new_sigma: float, g_phi: float, outcome: int, expected_outcome: float
+    ) -> float:
+        """Calculate the new average rating of the team based on the
+        current average rating, the new volatility, g(phi) value, the
+        outcome of the match, and the expected outcome.
+
+        Args:
+            mu (float): current average rating of the team
+            new_sigma (float): new volatility
+            g_phi (float): g(phi) value
+            outcome (int): simulated outcome of the match. 1 if team 1 wins, 0 if team 2 wins
+            expected_outcome (float): Expected outcome
+
+        Returns:
+            float: new average rating
+        """
         mu = mu + new_sigma**2 * g_phi * (outcome - expected_outcome)
         return mu

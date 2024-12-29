@@ -35,6 +35,12 @@ class Team:
             raise ValueError("Team has no players")
         return sum(p.RD for p in self.players) / self.size
 
+    @property
+    def avg_sigma(self) -> float:
+        if not self.players:
+            raise ValueError("Team has no players")
+        return sum(p.sigma for p in self.players) / self.size
+
 
 # Usage:
 # pool = PlayerPool(factory)
