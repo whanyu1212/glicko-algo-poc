@@ -1,1 +1,1 @@
-from .match_simulator import MatchSimulator
+from glicko.match.match_simulator import MatchSimulator
